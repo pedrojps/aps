@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdiminPalavraModule } from './adminstrado/adimin-palavra/adimin-palavra.module';
+import { AdminstradoModule } from './adminstrado/adminstrado.module';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AdiminPalavraModule } from './adminstrado/adimin-palavra/adimin-palavra
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdiminPalavraModule
+    AdminstradoModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
