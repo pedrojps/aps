@@ -1,1 +1,11 @@
-<p>buscar-area works!</p>
+<div class="container" style="max-width: 500px">
+    <form id="forBuscaE">
+    <div class="campo form-group">
+      <label for="evento_nome">Nome da Área:</label>
+      <input type="text" name="evento_nome" class="form-control" id="evento_nome" placeholder="Exemplo: IA, Machine Learning, Cloud Computer...">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="return BuscarArea()">Buscar</button>
+    </form>
+  </div>
+  <br/>
+  <div id ="resposta" class="container"></div>

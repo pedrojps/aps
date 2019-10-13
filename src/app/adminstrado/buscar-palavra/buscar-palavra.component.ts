@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PalavraService } from '../../servisos/palavra.service';
+
 @Component({
   selector: 'app-buscar-palavra',
   templateUrl: './buscar-palavra.component.html',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarPalavraComponent implements OnInit {
 
-  constructor() { }
+	palavras : Arry<any>; 
+
+	valorBuscado : string = ''
+
+  constructor(private palavraServe: PalavraService) { }
 
   ngOnInit() {
+  	this.buscarPalavra();
+  }
+
+  listeP(palavra : string){
+  	this.palavraServe.listar(palavra)
+  		.subscribe(dados => this.palavras = dados);
+  }
+
+  buscarPalavra(){
+  	this.listeP(this.valorBuscado);
   }
 
 }

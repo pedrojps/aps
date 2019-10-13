@@ -1,1 +1,32 @@
-<p>add-evento works!</p>
+<div class="container" style="max-width: 1000px">
+	<form name="formevento" id="formevento" > 
+		    <div class="campo">
+		        <label for="nome">Nome:</label>
+		        <input type="text" name="nome" id="nome" required>
+		    </div>
+		    <div class="campo">
+		        <label for="sigla">Sigla:</label>
+		        <input  type="text" name="sigla" id="sigla" required>
+		    </div>
+			<div class="campo">
+		        <label for="snome">Periodo do evento:</label>
+
+		        <input id="evento_de" type="date" required>
+
+		        <label for="snome">até</label>
+		        <input  id="evento_ate" type="date" required>
+		    </div>
+		    <div class="campo">
+		        <label for="snome">Periodo de submição:</label>
+
+		        <input id="subi_de" type="date" required>
+
+		        <label for="snome">ate</label>
+		        <input id="subi_ate" type="date" required>
+		    </div>
+		    <div id="div_area"></div>
+		    <div id="div_palavra"></div>
+		    <div id="resposta"></div>
+			<input type="submit" name="Cadastro" onclick="return validePeriodos()">
+	</form>
+</div>

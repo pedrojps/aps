@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AddEventoComponent } from './add-evento/add-evento.component';
 import { AddPalavraComponent } from './add-palavra/add-palavra.component';
 import { AddAreaComponent } from './add-area/add-area.component';
+
 import { BuscarAreaComponent } from './buscar-area/buscar-area.component';
 import { BuscarEventoComponent } from './buscar-evento/buscar-evento.component';
 import { BuscarPalavraComponent } from './buscar-palavra/buscar-palavra.component';
 
+//import { PalavraService } from './service/palavra.service';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations:[
   AddAreaComponent,
