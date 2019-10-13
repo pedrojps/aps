@@ -7,15 +7,15 @@ import { environment } from '../../environments/environment'
 })
 export class AreaService {
 
-  const buscaUrl= environment.API;
+  	Url= environment.API;
 
 	constructor(private http: HttpClient){}
 
-	listar( nome : String) {
-		const BpalavraUrl = this.buscaUrl+ "/area-get-nome/"+nome;
+	listar( nome ) {
+		var BucarUrl = this.Url+ "/area-get-nome/"+nome;
 		if (nome == "") {
-			BpalavraUrl : String = this.buscaUrl+ '/area-get-all';
+			BucarUrl  = this.Url+ '/area-get-all';
 		}
-		return this.http.get<any[]>(`${BpalavraUrl}`);
+		return this.http.get<any[]>(`${BucarUrl}`);
 	}
 }

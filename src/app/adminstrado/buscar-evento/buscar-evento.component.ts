@@ -10,9 +10,9 @@ import { EventoService } from '../../servisos/evento.service';
 })
 export class BuscarEventoComponent implements OnInit {
 
-	eventos : Arry<any>; 
+	eventos ; 
 
-	valorBuscado : string = ''
+	valorBuscado = ''
 
   constructor(private eventoServe: EventoService) { }
 
@@ -20,7 +20,7 @@ export class BuscarEventoComponent implements OnInit {
   	this.buscar();
   }
 
-  liste(nome : string){
+  liste(nome ){
   	this.eventoServe.listar(nome)
   		.subscribe(dados => this.eventos = dados);
   }

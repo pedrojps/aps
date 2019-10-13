@@ -9,9 +9,9 @@ import { PalavraService } from '../../servisos/palavra.service';
 })
 export class BuscarPalavraComponent implements OnInit {
 
-	palavras : Arry<any>; 
+	palavras ; 
 
-	valorBuscado : string = ''
+	valorBuscado  = ''
 
   constructor(private palavraServe: PalavraService) { }
 
@@ -19,7 +19,7 @@ export class BuscarPalavraComponent implements OnInit {
   	this.buscarPalavra();
   }
 
-  listeP(palavra : string){
+  listeP(palavra ){
   	this.palavraServe.listar(palavra)
   		.subscribe(dados => this.palavras = dados);
   }

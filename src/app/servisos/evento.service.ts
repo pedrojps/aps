@@ -7,14 +7,14 @@ import { environment } from '../../environments/environment'
 })
 export class EventoService {
 
-  const buscaUrl= environment.API;
+  	buscaUrl= environment.API;
 
 	constructor(private http: HttpClient){}
 
-	listar( nome : String) {
-		const BpalavraUrl = this.buscaUrl+ "/evento-get-nome/"+nome;
+	listar( nome ) {
+		var BpalavraUrl = this.buscaUrl+ "/evento-get-nome/"+nome;
 		if (nome == "") {
-			BpalavraUrl : String = this.buscaUrl+ '/evento-get-all';
+			BpalavraUrl = this.buscaUrl+ '/evento-get-all';
 		}
 		return this.http.get<any[]>(`${BpalavraUrl}`);
 	}
