@@ -90,11 +90,30 @@ export class AddEventoComponent implements OnInit {
   }
 
   cria(){
-  	console.log(this.valideSigla());
-  	console.log(this.valideNome());
-  	console.log(this.validePeriodoEvent());
-  	console.log(this.validePeriodoSub());
-  	console.log(this.valideArea());
+  	var sigrae =this.valideSigla();
+  	var nome =this.valideNome();
+  	var pEvento =this.validePeriodoEvent();
+  	var pSub =this.validePeriodoSub();
+  	var area =this.valideArea();
+  	if(sigrae==false||nome==false||pEvento==false||pSub==false||area==false)
+  		return false;
+
+  	var evento = {
+  		fim_evento: pEvento[1],
+  		inicio_evento: pEvento[0],
+
+  		fim_submissao: pSub[1],
+  		inicio_submicao: pSub[0],
+  		nome: nome,
+  		sigla : sigrae,
+  		area_de_pesquisa_id: area
+  	}
+  	console.log(evento);
+  	//console.log(this.valideSigla());
+  	//console.log(this.valideNome());
+  	//console.log(this.validePeriodoEvent());
+  	//console.log(this.validePeriodoSub());
+  	//console.log(this.valideArea());
   }
 
   chekboxObserve(e){
