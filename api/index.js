@@ -1,12 +1,21 @@
 var restify =  require ( 'restify' );
 var errs  =  require ( 'restify-errors' );
-
+var crosMiddleware = require('restify-cors-middleware')
 
 
 const server = restify.createServer({
   name: 'myapp',
   version: '1.0.0'
 });
+
+var cros = crosMiddleware({
+  orgins:['*'],
+  allowHeaders:['API-Token'],
+  exposeHeaders:['API-Token-Expiry']
+})
+
+server.pre(cros.preflight)
+server.use(cros.actual)
 
 var knex = require('knex')({
   client: 'mysql',
@@ -45,8 +54,9 @@ server.post('/palava-create', (req, res, next) => {
 
   knex('palavra_chave')
     .insert(req.body)
+    
     .then((dados)=>{
-    res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Origin', '*');
     res.send(dados);
   },next )
 
