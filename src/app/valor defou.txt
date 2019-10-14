@@ -1,0 +1,5 @@
+status artigo
+	0=>aguardando revição
+	1=>em revição
+	2=>Aceito
+ 	3=>Rejeitado

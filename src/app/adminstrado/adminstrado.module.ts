@@ -9,14 +9,17 @@ import { AddAreaComponent } from './add-area/add-area.component';
 import { BuscarAreaComponent } from './buscar-area/buscar-area.component';
 import { BuscarEventoComponent } from './buscar-evento/buscar-evento.component';
 import { BuscarPalavraComponent } from './buscar-palavra/buscar-palavra.component';
+import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.component';
 
+import { routing } from '../app.routing';
 //import { PalavraService } from './service/palavra.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   declarations:[
   AddAreaComponent,
@@ -24,7 +27,8 @@ import { BuscarPalavraComponent } from './buscar-palavra/buscar-palavra.componen
   AddPalavraComponent,
    BuscarAreaComponent, 
    BuscarEventoComponent, 
-   BuscarPalavraComponent
+   BuscarPalavraComponent,
+   DetalheEventoComponent
 
    ],
   exports:[

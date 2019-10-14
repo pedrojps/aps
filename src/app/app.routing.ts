@@ -10,6 +10,8 @@ import { BuscarPalavraComponent } from './adminstrado/buscar-palavra/buscar-pala
 import { BuscarEventoComponent } from './adminstrado/buscar-evento/buscar-evento.component';
 import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.component';
 
+import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
+
 
 const APP_ROUTES: Routes = [
 	{ path : 'palavaadd' , component : AddPalavraComponent
@@ -18,7 +20,8 @@ const APP_ROUTES: Routes = [
 	},{ path : 'palavrabusca' , component : BuscarPalavraComponent
 	},{ path : 'eventobusca' , component : BuscarEventoComponent
 	},{ path : 'areabusca' , component : BuscarAreaComponent
-	}
+	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent
+	},
 
 ];
 

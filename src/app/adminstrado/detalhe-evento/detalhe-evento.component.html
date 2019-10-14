@@ -1,0 +1,17 @@
+<div class="container" >
+	<h3>{{evento.nome}}, {{evento.sigla}},de {{evento.inicio_evento}} a {{evento.fim_evento}}. </h3>
+	<h3>Data de submissão: de {{evento.inicio_submicao}} a {{evento.fim_submissao}}.</h3>
+	<h4>Palavras-chave: {{palavras}}</h4>
+	<h4>Área de Concentração: {{evento.area_de_pesquisa}}</h4>
+
+
+    	<tbody>
+	        <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
+	          <th scope='row'>{{item.id}}</th>
+	          <td>{{item.titulo}}</td>
+	          <td>{{item.revisor}}</td>
+	          <td>{{item.status}} </td>
+	        </tr>
+	</tbody>
+
+</div>

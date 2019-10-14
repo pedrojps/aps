@@ -48,4 +48,10 @@ export class EventoService {
 		var BpalavraUrl = this.Url+ "artigo-liste-by-evento/"+id;
 		return this.http.get<any[]>(`${BpalavraUrl}`);
 	}
+
+	getEvento(id){
+		var BpalavraUrl = this.Url+ "evento-get/"+id;
+		return this.http.get<any[]>(`${BpalavraUrl}`);
+	}
+
 }

@@ -1,4 +1,4 @@
-<div class="container" style="max-width: 500px">
+<div class="container" >
     <div class="campo form-group">
       <label >Nome do evento:</label>
       <input type="text" class="form-control" [(ngModel)]="valorBuscado" >
@@ -37,7 +37,8 @@
 	          <td>{{item.inicio_evento}} ate {{item.fim_evento}} </td>
 	          <td>{{item.inicio_submicao}} ate {{item.fim_submissao}}</td>
 	          <td>{{item.area_de_pesquisa}}</td>
-            <td><button type="button" class="btn btn-success">Detalhes</button>
+            <td><button type="button" class="btn btn-success" routerLink="/detalhesbusca/{{item.id}}">Detalhes
+            </button>
 	          <button type="button" class="btn btn-outline-danger" (click)="delete(item)">Excluir</button></td>
 	        </tr>
 	    </tbody>
