@@ -19,6 +19,11 @@ export class EventoService {
 		return this.http.get<any[]>(`${BpalavraUrl}`);
 	}
 
+	listarPalavrasByEvento() {
+		var BpalavraUrl = this.Url+ "evento-palavra-get";
+		return this.http.get<any[]>(`${BpalavraUrl}`);
+	}
+
 	cria( area ) {
 		var CpalavraUrl = this.Url+ "evento-create";
 		return this.http.post(CpalavraUrl,area);
