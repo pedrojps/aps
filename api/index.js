@@ -32,7 +32,7 @@ server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
-server.listen(8080, function () {
+server.listen(8081, function () {
   console.log('%s listening at %s', server.name, server.url);
 });
 
@@ -208,7 +208,9 @@ server.del('/area-delete/:id', (req, res, next) => {
 server.get('/evento-get-all', (req, res, next) => {
   
 
-  knex('evento').then((dados)=>{
+  knex.select('evento.*','area_de_pesquisa.area_de_pesquisa')
+  .from('evento')
+  .innerJoin('area_de_pesquisa', 'area_de_pesquisa.id', 'evento.area_de_pesquisa_id').then((dados)=>{
       res.setHeader('Access-Control-Allow-Origin', '*');
     res.send(dados);
   },next )
@@ -232,8 +234,10 @@ server.get('/evento-get/:id', (req, res, next) => {
   const {id} = req.params;  
 
 
-  knex('evento')
-  .where('id',id)
+  knex.select('evento.*','area_de_pesquisa.area_de_pesquisa')
+  .from('evento')
+  .innerJoin('area_de_pesquisa', 'area_de_pesquisa.id', 'evento.area_de_pesquisa_id')
+  .where('evento.id',id)
   .first()
   .then((dados)=>{
       res.setHeader('Access-Control-Allow-Origin', '*');
@@ -247,7 +251,8 @@ server.get('/evento-get-nome/:busca', (req, res, next) => {
   const {busca} = req.params;  
 
 
-  knex('evento')
+  knex.select('evento.*','area_de_pesquisa.area_de_pesquisa').from('evento')
+  .innerJoin('area_de_pesquisa', 'area_de_pesquisa.id', 'evento.area_de_pesquisa_id')
   .where('nome','like','%'+busca+'%')
   .then((dados)=>{
       res.setHeader('Access-Control-Allow-Origin', '*');
@@ -277,6 +282,53 @@ server.del('/evento-delete/:id', (req, res, next) => {
 
   knex('evento')
   .where('id',id)
+  .delete()
+  .then((dados)=>{
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send('dados deletados');
+  },next )
+
+});
+
+server.post('/evento-palavra', (req, res, next) => {
+  
+  knex('evento_has_palavra_chave')
+    .insert(req.body)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+
+server.get('/evento-palavra-get', (req, res, next) => {
+  
+  knex('evento_has_palavra_chave')
+    .innerJoin('palavra_chave','evento_has_palavra_chave.palavra_chave_id','palavra_chave.id')
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+server.get('/artigo-liste-by-evento/:id', (req, res, next) => {
+  const {id} = req.params;  
+
+
+  knex('artigo')
+  .leftJoin('usuario','usuario.id','revisor.id')
+  .where('evento_id',id)
+  .then((dados)=>{
+    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send(dados);
+  },next )
+  });
+
+server.del('/delete-evento-palavra/:id', (req, res, next) => {
+  const {id} = req.params;  
+
+
+  knex('evento_has_palavra_chave')
+  .where('evento_id',id)
   .delete()
   .then((dados)=>{
       res.setHeader('Access-Control-Allow-Origin', '*');

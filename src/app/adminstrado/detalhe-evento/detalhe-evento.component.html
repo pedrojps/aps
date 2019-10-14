@@ -4,14 +4,23 @@
 	<h4>Palavras-chave: {{palavras}}</h4>
 	<h4>Área de Concentração: {{evento.area_de_pesquisa}}</h4>
 
-
-    	<tbody>
-	        <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
-	          <th scope='row'>{{item.id}}</th>
-	          <td>{{item.titulo}}</td>
-	          <td>{{item.revisor}}</td>
-	          <td>{{item.status}} </td>
-	        </tr>
+	<thead>
+        <tr>
+        	<th scope='col'>Id</th>
+            <th scope='col'>Titulo</th>
+            <th scope='col'>Revisor</th>
+            <th scope='col'>Periodo do evento</th>
+            <th scope='col'>Periodo do submição</th>
+            <th scope='col'>Àrea de concentração</th>
+        </tr>
+    </thead>
+	<tbody>
+        <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
+          <th scope='row'>{{item.id}}</th>
+          <td>{{item.titulo}}</td>
+          <td>{{item.revisor}}</td>
+          <td>{{item.status}} </td>
+        </tr>
 	</tbody>
 
 </div>
