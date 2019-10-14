@@ -39,6 +39,11 @@ export class EventoService {
 		return this.http.delete(CpalavraUrl);
 	}
 
+	deletaPalavra( id ) {
+		var CpalavraUrl = this.Url+ "delete-evento-palavra/"+id;
+		return this.http.delete(CpalavraUrl);
+	}
+
 	listeArtigos(id){
 		var BpalavraUrl = this.Url+ "artigo-liste-by-evento/"+id;
 		return this.http.get<any[]>(`${BpalavraUrl}`);

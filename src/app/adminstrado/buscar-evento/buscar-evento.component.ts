@@ -107,6 +107,7 @@ export class BuscarEventoComponent implements OnInit {
         this.eventoServe.deleta(item.id)
         .subscribe(
           success => {
+            this.eventoServe.deletaPalavra(item.id).subscribe();
             alert('O Evento Excluido');
             document.getElementById('evento-'+item.id).remove();
           },
