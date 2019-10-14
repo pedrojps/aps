@@ -12,13 +12,25 @@ import { EventoService } from '../../servisos/evento.service';
 })
 export class AddEventoComponent implements OnInit {
 
-  constructor(private areaServe: AreaService,private palavraServe: PalavraService,private eventoServe: EventoService) { }
-
   palavras;
 
   areas;
 
+  sDe;
+  sAte;
+  eDe;
+  eAte;
+  nome;
+  sigla; 
+  area;
+
+  mensagem;
+
   palavrasSelct=[];
+
+  constructor(private areaServe: AreaService,private palavraServe: PalavraService,private eventoServe: EventoService) {
+    this.area = "-1";
+   }
 
   checkedLista(){
   	var x = document.getElementById("palavrasList").getElementsByTagName("input");
@@ -91,11 +103,11 @@ export class AddEventoComponent implements OnInit {
 
   cria(){
   	var sigrae =this.valideSigla();
-  	var nome =this.valideNome();
+  	var nomes =this.valideNome();
   	var pEvento =this.validePeriodoEvent();
   	var pSub =this.validePeriodoSub();
-  	var area =this.valideArea();
-  	if(sigrae==false||nome==false||pEvento==false||pSub==false||area==false)
+  	var areae =this.valideArea();
+  	if(sigrae==false||nomes==false||pEvento==false||pSub==false||areae==false)
   		return false;
 
   	var evento = {
@@ -104,16 +116,43 @@ export class AddEventoComponent implements OnInit {
 
   		fim_submissao: pSub[1],
   		inicio_submicao: pSub[0],
-  		nome: nome,
+  		nome: nomes,
   		sigla : sigrae,
-  		area_de_pesquisa_id: area
+  		area_de_pesquisa_id: areae
   	}
+
+
   	console.log(evento);
+
+    this.eventoServe.cria(evento).subscribe(
+          dados => {
+            console.log(dados);
+            if(dados!=null){
+              var lischc=[];
+              this.checkedLista().forEach(function (item, indice, array) {
+                lischc[indice]={evento_id: dados[0] , palavra_chave_id: item }
+              });
+              console.log(lischc);
+              this.eventoServe.criaEventoPalavras(lischc).subscribe();
+              this.limpa();
+            }
+          },error=> this.mensagem= "Evento não pode ser salvo");
   	//console.log(this.valideSigla());
   	//console.log(this.valideNome());
   	//console.log(this.validePeriodoEvent());
   	//console.log(this.validePeriodoSub());
   	//console.log(this.valideArea());
+  }
+
+  limpa(){
+    this.sDe='';
+    this.sAte='';
+    this.eDe='';
+    this.eAte='';
+    this.nome='';
+    this.sigla=''; 
+    this.area='-1';
+    this.mensagem= "Evento salvo"
   }
 
   chekboxObserve(e){

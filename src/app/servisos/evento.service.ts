@@ -7,15 +7,25 @@ import { environment } from '../../environments/environment'
 })
 export class EventoService {
 
-  	buscaUrl= environment.API;
+  	Url= environment.API;
 
 	constructor(private http: HttpClient){}
 
 	listar( nome ) {
-		var BpalavraUrl = this.buscaUrl+ "evento-get-nome/"+nome;
+		var BpalavraUrl = this.Url+ "evento-get-nome/"+nome;
 		if (nome == "") {
-			BpalavraUrl = this.buscaUrl+ 'evento-get-all';
+			BpalavraUrl = this.Url+ 'evento-get-all';
 		}
 		return this.http.get<any[]>(`${BpalavraUrl}`);
+	}
+
+	cria( area ) {
+		var CpalavraUrl = this.Url+ "evento-create";
+		return this.http.post(CpalavraUrl,area);
+	}
+
+	criaEventoPalavras( area ) {
+		var CpalavraUrl = this.Url+ "evento-palavra";
+		return this.http.post(CpalavraUrl,area);
 	}
 }

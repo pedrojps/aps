@@ -2,29 +2,29 @@
 	
 		    <div class="campo">
 		        <label for="nome">Nome:</label>
-		        <input type="text" name="nome" id="nome" required>
+		        <input type="text" name="nome" id="nome" [(ngModel)]="nome" required>
 		    </div>
 		    <div class="campo">
 		        <label for="sigla">Sigla:</label>
-		        <input  type="text" name="sigla" id="sigla" required>
+		        <input  type="text" name="sigla" id="sigla" [(ngModel)]="sigla" required>
 		    </div>
 			<div class="campo">
 		        <label for="snome">Periodo do evento:</label>
 
-		        <input id="evento_de" type="date" required>
+		        <input id="evento_de" type="date" [(ngModel)]="eDe" required>
 
 		        <label for="snome">até</label>
-		        <input  id="evento_ate" type="date" required>
+		        <input  id="evento_ate" type="date" [(ngModel)]="eAte" required>
 		    </div>
 		    <div class="campo">
 		        <label for="snome">Periodo de submição:</label>
 
-		        <input id="subi_de" type="date" required>
+		        <input id="subi_de" type="date" [(ngModel)]="sDe" required>
 
 		        <label for="snome">ate</label>
-		        <input id="subi_ate" type="date" required>
+		        <input id="subi_ate" type="date" [(ngModel)]="sAte" required>
 		    </div>
-		    <select class="form-control" id="area">
+		    <select class="form-control" id="area" [(ngModel)]="area">
 		    	<option value="-1">Selecione uma Àrea</option>
 			  	<option *ngFor="let item of areas" value="{{item.id}}">{{item.area_de_pesquisa}}</option>
 			</select>
@@ -38,5 +38,8 @@
 		    <div id="resposta"></div>
 		    <br/>
 			<button class="btn btn-primary" (click)="cria()">Enviar</button>
+			<div class="alert " >
+		      {{mensagem}}
+		    </div>
 
 </div>
