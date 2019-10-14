@@ -33,7 +33,29 @@ export class BuscarEventoComponent implements OnInit {
   	this.eventoServe.listar(nome)
   		.subscribe(dados => {
         this.eventos = this.filtroPalavra(this.palavraSelect,dados);
+        this.eventos = this.filtroSituacao(this.situacao,this.eventos);
       });
+  }
+
+  filtroSituacao(situacao, dados){
+    if(situacao!="-1"){
+          var e = new Array();
+          var data = new Date();
+          dados.forEach( function (item, indice, array){
+              var situ = '';
+              if(item.inicio_submicao > data)
+                situ = '0';
+              else if(item.fim_submissao < data)
+                situ = '2';
+              else situ = '1';
+
+              if(situ == situacao){
+                e.push(item);
+              }
+          })
+          return e;
+     }
+     return dados;
   }
 
   filtroPalavra(palavra,dados){
