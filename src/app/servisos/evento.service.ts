@@ -33,4 +33,14 @@ export class EventoService {
 		var CpalavraUrl = this.Url+ "evento-palavra";
 		return this.http.post(CpalavraUrl,area);
 	}
+
+	deleta( id ) {
+		var CpalavraUrl = this.Url+ "evento-delete/"+id;
+		return this.http.delete(CpalavraUrl);
+	}
+
+	listeArtigos(id){
+		var BpalavraUrl = this.Url+ "artigo-liste-by-evento/"+id;
+		return this.http.get<any[]>(`${BpalavraUrl}`);
+	}
 }

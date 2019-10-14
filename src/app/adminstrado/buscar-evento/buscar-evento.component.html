@@ -30,15 +30,15 @@
         </tr>
     </thead>
     	<tbody>
-	        <tr *ngFor="let item of eventos">
+	        <tr *ngFor="let item of eventos" id="evento-{{item.id}}">
 	          <th scope='row'>{{item.id}}</th>
 	          <td>{{item.nome}}</td>
 	          <td>{{item.sigla}}</td>
 	          <td>{{item.inicio_evento}} ate {{item.fim_evento}} </td>
 	          <td>{{item.inicio_submicao}} ate {{item.fim_submissao}}</td>
 	          <td>{{item.area_de_pesquisa}}</td>
-	          <td></td>
-	          <td></td>
+            <td><button type="button" class="btn btn-success">Detalhes</button>
+	          <button type="button" class="btn btn-outline-danger" (click)="delete(item)">Excluir</button></td>
 	        </tr>
 	    </tbody>
 	</table>

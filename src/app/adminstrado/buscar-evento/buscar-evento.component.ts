@@ -95,14 +95,26 @@ export class BuscarEventoComponent implements OnInit {
               id.push(item.id);
             }
         })
-        this.palavras = this.lispaPalavras(p);
+        this.palavras = p;
         console.log(this.palavras);
       });
   }
 
-  lispaPalavras(p){
-    console.log(p);
-    return p;
+  delete(item){
+    console.log(item);
+    this.eventoServe.listeArtigos(item.id).subscribe( dados=>{
+      if(dados.length==0){
+        this.eventoServe.deleta(item.id)
+        .subscribe(
+          success => {
+            alert('O Evento Excluido');
+            document.getElementById('evento-'+item.id).remove();
+          },
+            error=> alert('O Evento Não pode ser excluirdo Excluido')
+          );
+      }else alert('O Evento Não pode ser excluirdo Excluido');
+    });
+    
   }
 
   buscar(){
