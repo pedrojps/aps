@@ -33,13 +33,71 @@ export class AddEventoComponent implements OnInit {
 	return palavras;
   }
 
+  validePeriodoSub(){
+	var sDe = document.getElementById("subi_de").value;
+	var sAte = document.getElementById("subi_ate").value;
+
+	if(sDe>sAte){
+		alert('A submição não pode acaba antes mesmo de começar');
+		document.getElementById("subi_de").focus();
+		return false;
+	}
+	return [sDe,sAte];
+  }
+  validePeriodoEvent(){
+  	var eDe = document.getElementById("evento_de").value;
+	var eAte = document.getElementById("evento_ate").value;
+
+	if(eDe>eAte){
+		alert('O evento não pode acaba antes mesmo de começar');
+		document.getElementById("evento_de").focus();
+		return false;
+	}
+	return [eDe,eAte];
+  }
+
+  valideNome(){
+  	var nome = document.getElementById("nome").value;
+
+	if(nome.length<0){
+		alert('Campo nome esta vazio');
+		document.getElementById("nome").focus();
+		return false;
+	}
+	return nome;
+  }
+
+  valideSigla(){
+  	var sigla = document.getElementById("sigla").value;
+
+	if(sigla.length<0){
+		alert('Campo sigla esta vazio');
+		document.getElementById("sigla").focus();
+		return false;
+	}
+	return sigla;
+  }
+
+  valideArea(){
+  	var area = document.getElementById("area").value;
+
+	if(area=="-1"){
+		alert('Selecione uma área');
+		document.getElementById("area").focus();
+		return false;
+	}
+	return area;
+  }
+
+  cria(){
+  	console.log(this.valideSigla());
+  	console.log(this.valideNome());
+  	console.log(this.validePeriodoEvent());
+  	console.log(this.validePeriodoSub());
+  	console.log(this.valideArea());
+  }
 
   chekboxObserve(e){
-  	if(e.target.checked){
-  		this.palavrasSelct.push(e.target.value);
-  	}else{
-  		this.palavrasSelct.splice(this.palavrasSelct.indexOf(e.target.value));
-  	}
   	console.log(this.checkedLista());
   }
 

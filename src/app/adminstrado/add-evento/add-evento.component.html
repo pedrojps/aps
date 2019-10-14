@@ -24,9 +24,9 @@
 		        <label for="snome">ate</label>
 		        <input id="subi_ate" type="date" required>
 		    </div>
-		    <select class="form-control">
-		    	<option >Selecione uma Àrea</option>
-			  	<option *ngFor="let item of areas">{{item.area_de_pesquisa}}</option>
+		    <select class="form-control" id="area">
+		    	<option value="-1">Selecione uma Àrea</option>
+			  	<option *ngFor="let item of areas" value="{{item.id}}">{{item.area_de_pesquisa}}</option>
 			</select>
 		    <div id='palavrasList'>
 				<div *ngFor="let item of palavras" class="form-check form-check-inline">
