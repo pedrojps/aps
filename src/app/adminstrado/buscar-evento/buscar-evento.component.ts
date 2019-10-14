@@ -20,6 +20,8 @@ export class BuscarEventoComponent implements OnInit {
 
   palavraSelect="-1";
 
+  situacao='-1';
+
   constructor(private eventoServe: EventoService) { }
 
   ngOnInit() {
@@ -29,7 +31,34 @@ export class BuscarEventoComponent implements OnInit {
 
   liste(nome ){
   	this.eventoServe.listar(nome)
-  		.subscribe(dados => this.eventos = dados);
+  		.subscribe(dados => {
+        this.eventos = this.filtroPalavra(this.palavraSelect,dados);
+      });
+  }
+
+  filtroPalavra(palavra,dados){
+    if(palavra!="-1"){
+          var idsE = this.ListEventosComPalavra(palavra);
+          var e = new Array();
+          dados.forEach( function (item, indice, array){
+               if(idsE.indexOf(item.id) != -1){
+                e.push(item);
+              }
+          })
+          return e;
+     }
+     return dados;
+  }
+
+  ListEventosComPalavra(ser){
+    var p = new Array();
+    this.palavrasByevento.forEach( function (item, indice, array){
+           if(item.palavra_chave_id == ser){
+            p.push(item.evento_id);
+          }
+      })
+    console.log(p);
+    return p;
   }
 
   listePalavrasByEvento(){

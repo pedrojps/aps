@@ -3,9 +3,15 @@
       <label >Nome do evento:</label>
       <input type="text" class="form-control" [(ngModel)]="valorBuscado" >
     </div>
-    <select class="form-control" [(ngModel)]="palavraSelect">
+      <select class="form-control" [(ngModel)]="palavraSelect">
           <option value="-1">Selecione uma Palavra chave para buscar evento</option>
           <option *ngFor="let item of palavras" value="{{item.id}}">{{item.palavra}}</option>
+      </select>
+      <select class="form-control" [(ngModel)]="situacao">
+          <option value="-1">Selecione uma Situação de submissão</option>
+          <option value="0">Aguardando abertura</option>
+          <option value="1">Aberta</option>
+          <option value="2">Fechada</option>
       </select>
     <button class="btn btn-primary" (click)="buscar()">Buscar</button>
   </div>
