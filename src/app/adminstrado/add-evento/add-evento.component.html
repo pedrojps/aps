@@ -1,5 +1,5 @@
-<div class="container" style="max-width: 1000px">
-	<form name="formevento" id="formevento" > 
+<div class="container" style="max-width: 800px">
+	
 		    <div class="campo">
 		        <label for="nome">Nome:</label>
 		        <input type="text" name="nome" id="nome" required>
@@ -24,9 +24,19 @@
 		        <label for="snome">ate</label>
 		        <input id="subi_ate" type="date" required>
 		    </div>
-		    <div id="div_area"></div>
-		    <div id="div_palavra"></div>
+		    <select class="form-control">
+		    	<option >Selecione uma Àrea</option>
+			  	<option *ngFor="let item of areas">{{item.area_de_pesquisa}}</option>
+			</select>
+		    <div id='palavrasList'>
+				<div *ngFor="let item of palavras" class="form-check form-check-inline">
+			  		<input class="form-check-input" (change)="chekboxObserve($event)"  type="checkbox" value="{{item.id}}"  >
+			  		<label class="form-check-label"  for="inlineCheckbox">{{item.palavra}}</label>
+				</div>
+			</div>
+
 		    <div id="resposta"></div>
-			<input type="submit" name="Cadastro" onclick="return validePeriodos()">
-	</form>
+		    <br/>
+			<button class="btn btn-primary" (click)="cria()">Enviar</button>
+
 </div>

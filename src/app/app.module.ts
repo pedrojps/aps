@@ -11,10 +11,12 @@ import { routing } from './app.routing';
 import { PalavraService } from './servisos/palavra.service';
 import { EventoService } from './servisos/evento.service';
 import { AreaService } from './servisos/area.service';
+import { SelectArasComponent } from './adiminstrado/select-aras/select-aras.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SelectArasComponent
   ],
   imports: [
     BrowserModule,
