@@ -1,11 +1,13 @@
-
-  <div class="container" style="max-width: 800px">
-    <form id="forarea">
-    <div class="campo form-group">
-      <label for="area">Nome da área:</label>
-      <input type="text" name="area" class="form-control" id="area" required="true" placeholder="Exemplo: IA, Machine Learning, Cloud Computer...">
+<div class="container" style="max-width: 800px">
+  	    <div class="campo form-group">
+  	        <label >Nova Àrea:</label>
+  	        <input  type="text" class="form-control" [(ngModel)]="nome" >
+  	    </div>
+		
+		<button class="btn btn-primary" (click)="cria()">Enviar</button>
+    <div class="alert " >
+      {{mensagem}}
     </div>
-    <input type="submit" name="Cadastro" class="btn btn-primary" onclick="return sub_area()">
-    </form>
+    
   </div>
   <div id ="resposta"></div>

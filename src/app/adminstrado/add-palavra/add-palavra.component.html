@@ -1,11 +1,13 @@
 <div class="container" style="max-width: 800px">
-    <form id="forpalavra"> 
   	    <div class="campo form-group">
-  	        <label for="palavra">Nova Palavra-Chave:</label>
-  	        <input type="text" class="form-control" name="palavra" id="palavra" required = "true">
+  	        <label >Nova Palavra-Chave:</label>
+  	        <input  type="text" class="form-control" [(ngModel)]="palavra" >
   	    </div>
 		
-		<button type="button" class="btn btn-primary" onclick="return sub_palavra()">Enviar</button>
-  	</form>
+		<button class="btn btn-primary" (click)="cria()">Enviar</button>
+    <div class="alert " >
+      {{mensagem}}
+    </div>
+    
   </div>
   <div id ="resposta"></div>

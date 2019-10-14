@@ -12,9 +12,9 @@ export class EventoService {
 	constructor(private http: HttpClient){}
 
 	listar( nome ) {
-		var BpalavraUrl = this.buscaUrl+ "/evento-get-nome/"+nome;
+		var BpalavraUrl = this.buscaUrl+ "evento-get-nome/"+nome;
 		if (nome == "") {
-			BpalavraUrl = this.buscaUrl+ '/evento-get-all';
+			BpalavraUrl = this.buscaUrl+ 'evento-get-all';
 		}
 		return this.http.get<any[]>(`${BpalavraUrl}`);
 	}
