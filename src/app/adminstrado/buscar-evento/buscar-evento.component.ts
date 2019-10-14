@@ -43,9 +43,9 @@ export class BuscarEventoComponent implements OnInit {
           var data = new Date();
           dados.forEach( function (item, indice, array){
               var situ = '';
-              if(item.inicio_submicao > data)
+              if(new Date(item.inicio_submicao) > data)
                 situ = '0';
-              else if(item.fim_submissao < data)
+              else if(new Date(item.fim_submissao) < data)
                 situ = '2';
               else situ = '1';
 
