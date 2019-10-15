@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { LoginUserComponent } from './login-user/login-user.component';
 import { routing } from '../app.routing';
+import { HomeComponent } from './home/home.component';
+import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.component';
 
 @NgModule({
   declarations: [
-  LoginUserComponent],
+  LoginUserComponent,
+  HomeComponent,
+  CadastraUsuarioComponent],
   imports: [
     CommonModule,
     FormsModule,

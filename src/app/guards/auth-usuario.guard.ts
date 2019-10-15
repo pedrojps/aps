@@ -19,11 +19,11 @@ export class AuthUsuarioGuard implements CanActivate{
   	route : ActivatedRouteSnapshot, 
   	state: RouterStateSnapshot) : Obsevable<boolean> | boolean{
 
-  	if(this.authServe.adiminEstaAutenticado()){
+  	if(this.authServe.usuarioEstaAutenticado()){
   		return true;
   	}
 
-  	this.router.navigate(['/loginadimin'])
+  	this.router.navigate(['/login'])
   	return false;
   }
 }

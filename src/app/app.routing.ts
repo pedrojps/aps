@@ -9,11 +9,13 @@ import { AddAreaComponent } from './adminstrado/add-area/add-area.component';
 import { BuscarPalavraComponent } from './adminstrado/buscar-palavra/buscar-palavra.component';
 import { BuscarEventoComponent } from './adminstrado/buscar-evento/buscar-evento.component';
 import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.component';
-
 import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
 import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.component';
 import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.component';
+
 import { LoginUserComponent } from './usuario/login-user/login-user.component';
+import { HomeComponent } from './usuario/home/home.component';
+import { CadastraUsuarioComponent } from './usuario/cadastra-usuario/cadastra-usuario.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -31,6 +33,8 @@ const APP_ROUTES: Routes = [
 	},{ path : 'editaevento/:id' , component : EditEventoComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'loginadimin' , component : LoginAdiminComponent
 	},{ path : 'login' , component : LoginUserComponent
+	},{ path : 'cadastrausuario' , component : CadastraUsuarioComponent
+	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
 	}
 
 ];

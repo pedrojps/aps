@@ -53,7 +53,7 @@ export class AuthService {
         this.usuario=dados[0];
         this.usuarioAutenticado= true;
         this.mostaMenuUsuarioEmitter.emit(true);
-        this.router.navigate(['/eventobusca']);
+        this.router.navigate(['/']);
         } else {
           this.usuarioAutenticado= false;
           alert("senha ou login estão erados")

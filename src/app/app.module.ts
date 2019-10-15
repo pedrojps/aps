@@ -14,6 +14,7 @@ import { EventoService } from './servisos/evento.service';
 import { AreaService } from './servisos/area.service';
 import { ArtigoService } from './servisos/artigo.service';
 import { AuthService } from './servisos/auth.service';
+import { UsuarioService } from './servisos/usuario.service';
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
 import { AuthUsuarioGuard } from './guards/auth-usuario.guard';
@@ -31,7 +32,14 @@ import { AuthUsuarioGuard } from './guards/auth-usuario.guard';
     FormsModule
   ],
   providers: [
-  PalavraService,EventoService,AreaService, ArtigoService,AuthService,AuthAdiminGuard,AuthUsuarioGuard
+  PalavraService,
+  EventoService,
+  AreaService,
+  ArtigoService,
+  AuthService,
+  AuthAdiminGuard,
+  AuthUsuarioGuard,
+  UsuarioService
   ],
   bootstrap: [AppComponent]
 })
