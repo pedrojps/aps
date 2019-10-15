@@ -76,7 +76,7 @@ export class CadastraUsuarioComponent implements OnInit {
   	}
   	this.userServe.cria(this.novo).subscribe(
   		success => {
-  			alert('Àrea cadastrada com susseço');
+  			alert('usuario cadastrada com susseço');
   			var tes = new Usuario();
   			tes.nome = this.novo.email;
   			tes.senha = this.novo.senha;
