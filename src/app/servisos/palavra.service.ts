@@ -23,4 +23,10 @@ export class PalavraService {
 		var CpalavraUrl = this.buscaUrl+ "palava-create";
 		return this.http.post(CpalavraUrl,palavra);
 	}
+
+	getPalavraByEvento(id){
+		var CpalavraUrl = this.buscaUrl+ "evento-palavra-get/"+id;
+		return this.http.get<any[]>(CpalavraUrl);
+
+	}
 }

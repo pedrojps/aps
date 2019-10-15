@@ -11,6 +11,7 @@ import { BuscarEventoComponent } from './adminstrado/buscar-evento/buscar-evento
 import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.component';
 
 import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
+import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.component';
 
 
 const APP_ROUTES: Routes = [
@@ -21,7 +22,8 @@ const APP_ROUTES: Routes = [
 	},{ path : 'eventobusca' , component : BuscarEventoComponent
 	},{ path : 'areabusca' , component : BuscarAreaComponent
 	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent
-	},
+	},{ path : 'editaevento/:id' , component : EditEventoComponent
+	}
 
 ];
 

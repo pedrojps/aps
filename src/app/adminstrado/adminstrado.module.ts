@@ -12,6 +12,7 @@ import { BuscarPalavraComponent } from './buscar-palavra/buscar-palavra.componen
 import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.component';
 
 import { routing } from '../app.routing';
+import { EditEventoComponent } from './edit-evento/edit-evento.component';
 //import { PalavraService } from './service/palavra.service';
 
 
@@ -28,7 +29,8 @@ import { routing } from '../app.routing';
    BuscarAreaComponent, 
    BuscarEventoComponent, 
    BuscarPalavraComponent,
-   DetalheEventoComponent
+   DetalheEventoComponent,
+   EditEventoComponent
 
    ],
   exports:[

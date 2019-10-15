@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } 	 from '@angular/router';
+import { Location } 	 from '@angular/common';
 
 import { EventoService } from '../../servisos/evento.service';
 import { ArtigoService } from '../../servisos/artigo.service';
+import { PalavraService } from '../../servisos/palavra.service';
 import { Evento } from '../../evento';
 
 @Component({
@@ -13,13 +15,16 @@ import { Evento } from '../../evento';
 export class DetalheEventoComponent implements OnInit {
 
 	evento = new Evento(); 
+	palavras='';
 	id;
 	artigos;
 	artigosAprovados;
 	artigosRejeitados;
 	constructor(private eventoServe: EventoService, 
 		private artigoServe : ArtigoService ,
-		private route:ActivatedRoute) { 
+		private palavraServe: PalavraService,
+		private route:ActivatedRoute,
+  		private location: Location) { 
 		this.id = this.route.snapshot.params['id'];
 	}
 
@@ -27,11 +32,22 @@ export class DetalheEventoComponent implements OnInit {
 		this.id=this.id = this.route.snapshot.params['id'];
 		this.getEvento(this.id);
 		this.getArtigos(this.id);
+		this.getPalavras(this.id);
 	}
 
 	getEvento(id){
-		this.eventoServe.getEvento(id).subscribe(
-			dados=> this.evento = dados
+		this.eventoServe.getEvento(id).subscribe(dados=> this.evento = dados);
+	}
+
+	getPalavras(id){
+		this.palavraServe.getPalavraByEvento(id).subscribe(
+			dados=> {
+				var p = '';
+				dados.forEach(function (item, indice, array) {
+					p= p+item.palavra+" ";
+				});
+				this.palavras=p;
+			}
 			);
 	}
 
@@ -52,5 +68,7 @@ export class DetalheEventoComponent implements OnInit {
 			);
 	}
 
-
+	cancela(){
+  		this.location.back();
+  	}
 }

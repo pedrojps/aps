@@ -1,0 +1,46 @@
+<div class="container" style="max-width: 800px">
+	
+		    <div class="campo">
+		        <label for="nome">Nome:</label>
+		        <input type="text" name="nome" id="nome" [(ngModel)]="evento.nome" required>
+		    </div>
+		    <div class="campo">
+		        <label for="sigla">Sigla:</label>
+		        <input  type="text" name="sigla" id="sigla" [(ngModel)]="evento.sigla" required>
+		    </div>
+			<div class="campo">
+		        <label for="snome">Periodo do evento:</label>
+
+		        <input id="evento_de" type="date" [(ngModel)]="evento.inicio_evento" required>
+
+		        <label for="snome">até</label>
+		        <input  id="evento_ate" type="date" [(ngModel)]="evento.fim_evento" required>
+		    </div>
+		    <div class="campo">
+		        <label for="snome">Periodo de submição:</label>
+
+		        <input id="subi_de" type="date" [(ngModel)]="evento.inicio_submicao" required>
+
+		        <label for="snome">ate</label>
+		        <input id="subi_ate" type="date" [(ngModel)]="evento.fim_submissao" required>
+		    </div>
+		    <select class="form-control" id="area" [(ngModel)]="evento.area_de_pesquisa_id">
+		    	<option value="-1">Selecione uma Àrea</option>
+			  	<option *ngFor="let item of areas" value="{{item.id}}">{{item.area_de_pesquisa}}</option>
+			</select>
+		    <div id='palavrasList'>
+				<div *ngFor="let item of palavras" class="form-check form-check-inline">
+			  		<input class="form-check-input" (change)="chekboxObserve($event)"  type="checkbox" value="{{item.id}}" id="chec-{{item.id}}" >
+			  		<label class="form-check-label"  for="inlineCheckbox">{{item.palavra}}</label>
+				</div>
+			</div>
+
+		    <div id="resposta"></div>
+		    <br/>
+			<button class="btn btn-primary" (click)="cria()">Enviar</button>
+			<button type="button" class="btn btn-outline-secondary" (click)="cancela()">Cancela</button>
+			<div class="alert " >
+		      {{mensagem}}
+		    </div>
+
+</div>

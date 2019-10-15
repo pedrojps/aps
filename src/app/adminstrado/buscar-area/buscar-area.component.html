@@ -16,11 +16,10 @@
         </tr>
     </thead>
     	<tbody>
-	        <tr *ngFor="let item of areas">
+	        <tr *ngFor="let item of areas" id="area-{{item.id}}">
 	          <th scope='row'>{{item.id}}</th>
 	          <td>{{item.area_de_pesquisa}}</td>
-	          <td></td>
-	          <td></td>
+	          <td><button type="button" class="btn btn-outline-danger botao-r" (click)="delete(item)">Excluir</button></td>
 	        </tr>
 	    </tbody>
 	</table>

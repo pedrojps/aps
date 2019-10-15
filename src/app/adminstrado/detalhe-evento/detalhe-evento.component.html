@@ -1,10 +1,20 @@
 <div class="container" >
-	<h3>{{evento.nome}}, {{evento.sigla}},de {{evento.inicio_evento}} a {{evento.fim_evento}}. </h3>
-	<h3>Data de submissão: de {{evento.inicio_submicao}} a {{evento.fim_submissao}}.</h3>
-	<h4>Palavras-chave: {{palavras}}</h4>
-	<h4>Área de Concentração: {{evento.area_de_pesquisa}}</h4>
-
-	<thead>
+  <div class="row">
+    <div class= 'col-10'>
+      <h3>{{evento.nome}}, {{evento.sigla}},de {{evento.inicio_evento}} a {{evento.fim_evento}}. </h3>
+      <h3>Data de submissão: de {{evento.inicio_submicao}} a {{evento.fim_submissao}}.</h3>
+      <h4>Palavras-chave: {{palavras}}</h4>
+      <h4>Área de Concentração: {{evento.area_de_pesquisa}}</h4>
+      <h4>Artigos submetidos:</h4>
+      <h4>Artigos aceitos:</h4>
+      <h4>Artigos rejeitados:</h4>
+    </div>
+    <div class="col"><button type="button" class="btn btn-success" routerLink="/editaevento/{{evento.id}}">Editar</button>
+      <button type="button" class="btn btn-outline-secondary" (click)="cancela()">Cancela</button></div>
+  </div>
+  <div id ="resposta" class="container">
+    <table class='table table-dark'>
+    	<thead>
         <tr>
         	<th scope='col'>Id</th>
             <th scope='col'>Titulo</th>
@@ -13,14 +23,15 @@
             <th scope='col'>Periodo do submição</th>
             <th scope='col'>Àrea de concentração</th>
         </tr>
-    </thead>
-	<tbody>
+      </thead>
+    	<tbody>
         <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
           <th scope='row'>{{item.id}}</th>
           <td>{{item.titulo}}</td>
           <td>{{item.revisor}}</td>
           <td>{{item.status}} </td>
         </tr>
-	</tbody>
-
+    	</tbody>
+    </table>
+  </div>
 </div>

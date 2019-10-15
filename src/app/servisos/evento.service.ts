@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
+import { Evento } from '../evento';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,12 @@ export class EventoService {
 
 	getEvento(id){
 		var BpalavraUrl = this.Url+ "evento-get/"+id;
-		return this.http.get<any[]>(`${BpalavraUrl}`);
+		return this.http.get<Evento>(`${BpalavraUrl}`);
+	}
+
+	update(evento: Evento,id){
+		var BpalavraUrl = this.Url+ "evento-update/"+id;
+		return this.http.put(`${BpalavraUrl}`,evento);
 	}
 
 }

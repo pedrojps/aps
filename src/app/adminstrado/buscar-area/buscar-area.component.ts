@@ -28,4 +28,21 @@ export class BuscarAreaComponent implements OnInit {
   	this.liste(this.valorBuscado);
   }
 
+  delete(item){
+    console.log(item);
+    this.areaServe.getEventoByArea(item.id).subscribe( dados=>{
+      console.log(dados);
+      if(dados.length==0){
+        this.areaServe.deleta(item.id)
+        .subscribe(
+          success => {
+            alert('O Área Excluida');
+            document.getElementById('area-'+item.id).remove();
+          },
+            error=> alert('O Área Não pode ser excluirdo Excluida')
+          );
+      }else alert('O Àrea Não pode ser excluirdo Excluida há eventos com essa área');
+    });
+    
+  }
 }
