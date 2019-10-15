@@ -367,3 +367,15 @@ server.del('/delete-evento-palavra/:id', (req, res, next) => {
   },next )
 
 });
+
+
+////////////////////////usuario///////////
+server.post('/altentic-adimin-get', (req, res, next) => {
+
+  knex('adiministrador')
+  .where('senha',req.body.senha).andWhere('email',req.body.nome)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});

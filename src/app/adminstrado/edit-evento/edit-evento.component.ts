@@ -89,7 +89,7 @@ export class EditEventoComponent implements OnInit {
   }
 
   valideArea(){
-	if(this.evento.area_de_pesquisa=="-1"){
+	if(this.evento.area_de_pesquisa_id=="-1"){
 		alert('Selecione uma área');
 		document.getElementById("area").focus();
 		return false;

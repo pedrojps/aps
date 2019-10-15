@@ -1,5 +1,5 @@
 export class Evento {
-	id;
+	id ;
 	nome;
 	sigla;
 	inicio_evento;

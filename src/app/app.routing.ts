@@ -12,17 +12,25 @@ import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.compo
 
 import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
 import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.component';
+import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.component';
+import { LoginUserComponent } from './usuario/login-user/login-user.component';
+
+
+import { AuthAdiminGuard } from './guards/auth-admin.guard';
+import { AuthUsuarioGuard } from './guards/auth-usuario.guard';
 
 
 const APP_ROUTES: Routes = [
-	{ path : 'palavaadd' , component : AddPalavraComponent
-	},{ path : 'eventoadd' , component : AddEventoComponent
-	},{ path : 'areaadd' , component : AddAreaComponent
-	},{ path : 'palavrabusca' , component : BuscarPalavraComponent
-	},{ path : 'eventobusca' , component : BuscarEventoComponent
-	},{ path : 'areabusca' , component : BuscarAreaComponent
-	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent
-	},{ path : 'editaevento/:id' , component : EditEventoComponent
+	{ path : 'palavaadd' , component : AddPalavraComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'eventoadd' , component : AddEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'areaadd' , component : AddAreaComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'palavrabusca' , component : BuscarPalavraComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'eventobusca' , component : BuscarEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'areabusca' , component : BuscarAreaComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'editaevento/:id' , component : EditEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'loginadimin' , component : LoginAdiminComponent
+	},{ path : 'login' , component : LoginUserComponent
 	}
 
 ];

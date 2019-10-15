@@ -13,7 +13,7 @@ import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.componen
 
 import { routing } from '../app.routing';
 import { EditEventoComponent } from './edit-evento/edit-evento.component';
-//import { PalavraService } from './service/palavra.service';
+import { LoginAdiminComponent } from './login-adimin/login-adimin.component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { EditEventoComponent } from './edit-evento/edit-evento.component';
    BuscarEventoComponent, 
    BuscarPalavraComponent,
    DetalheEventoComponent,
-   EditEventoComponent
+   EditEventoComponent,
+    LoginAdiminComponent
 
    ],
   exports:[
