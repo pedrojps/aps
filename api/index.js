@@ -270,7 +270,6 @@ server.put('/evento-update/:id', (req, res, next) => {
   .where('id',id)
   .update(req.body)
   .then((dados)=>{
-      res.setHeader('Access-Control-Allow-Origin', '*');
     if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
     res.send('dados atualizados');
   },next )
@@ -300,7 +299,28 @@ server.post('/evento-palavra', (req, res, next) => {
   },next )
 
 });
+server.get('/evento-palavra-get/:id', (req, res, next) => {
+  const {id} = req.params;  
 
+  knex.select('palavra_chave.*').from('evento_has_palavra_chave')
+    .innerJoin('palavra_chave','evento_has_palavra_chave.palavra_chave_id','palavra_chave.id')
+    .where('evento_id',id)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+
+server.get('/areaid-evento-get/:id', (req, res, next) => {
+  const {id} = req.params;  
+
+  knex('evento')
+  .where('area_de_pesquisa_id',id)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
 server.get('/evento-palavra-get', (req, res, next) => {
   
   knex('evento_has_palavra_chave')
@@ -315,7 +335,6 @@ server.get('/artigo-liste-by-evento/:id', (req, res, next) => {
 
 
   knex('artigo')
-  .leftJoin('usuario','usuario.id','revisor.id')
   .where('evento_id',id)
   .then((dados)=>{
     if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
@@ -332,7 +351,6 @@ server.del('/delete-evento-palavra/:id', (req, res, next) => {
   .delete()
   .then((dados)=>{
       res.setHeader('Access-Control-Allow-Origin', '*');
-    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
     res.send('dados deletados');
   },next )
 
