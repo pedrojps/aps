@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   liste(){
   	this.eventoServe.listar("")
   		.subscribe(dados => {
-        this.eventos = this.filtroPalavra(dados);
+        this.eventos = this.filtroSituacao(this.filtroPalavra(dados));
       });
   }
 
@@ -33,6 +33,26 @@ export class HomeComponent implements OnInit {
   			list.push(e);
   	}
   	return list;
+  }
+
+  filtroSituacao( dados){
+
+          var e = new Array();
+          var data = new Date();
+          dados.forEach( function (item, indice, array){
+			var situ = false;
+			if(new Date(item.inicio_submicao) > data)
+			situ = false;
+			else if(new Date(item.fim_submissao) < data)
+			situ = false;
+			else situ = true;
+
+			item.situ = situ;
+			e.push(item);
+			console.log(item);
+          })
+          return e;
+     
   }
 
 }

@@ -22,7 +22,7 @@
 	          <td>{{item.inicio_evento}} ate {{item.fim_evento}} </td>
 	          <td>{{item.inicio_submicao}} ate {{item.fim_submissao}}</td>
 	          <td>{{item.area_de_pesquisa}}</td>
-            <td><button type="button" class="btn btn-success" routerLink="/submicaoAtigo/{{item.id}}">Submeter um artigo
+            <td><button type="button" *ngIf="item.situ" class="btn btn-success" routerLink="/submicaoAtigo/{{item.id}}">Submeter um artigo
             </button></td>
 	        </tr>
 	    </tbody>
