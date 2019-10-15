@@ -17,6 +17,7 @@ import { LoginUserComponent } from './usuario/login-user/login-user.component';
 import { HomeComponent } from './usuario/home/home.component';
 import { CadastraUsuarioComponent } from './usuario/cadastra-usuario/cadastra-usuario.component';
 import { EditaUsuarioComponent } from './usuario/edita-usuario/edita-usuario.component';
+import { BuscarUserEventoComponent } from './usuario/buscar-evento/buscar-evento.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -37,6 +38,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'cadastrausuario' , component : CadastraUsuarioComponent
 	},{ path : 'editausuario' , component : EditaUsuarioComponent ,canActivate:[AuthUsuarioGuard]
 	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
+	},{ path : 'userbuscar' , component : BuscarUserEventoComponent , canActivate:[AuthUsuarioGuard]
 	}
 
 ];

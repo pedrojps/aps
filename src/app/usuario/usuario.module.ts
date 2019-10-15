@@ -7,13 +7,15 @@ import { routing } from '../app.routing';
 import { HomeComponent } from './home/home.component';
 import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.component';
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
+import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.component';
 
 @NgModule({
   declarations: [
   LoginUserComponent,
   HomeComponent,
   CadastraUsuarioComponent,
-  EditaUsuarioComponent],
+  EditaUsuarioComponent,
+  BuscarUserEventoComponent],
   imports: [
     CommonModule,
     FormsModule,

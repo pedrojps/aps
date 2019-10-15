@@ -1,0 +1,47 @@
+<div class="container" >
+    <div class="campo form-group">
+      <label >Nome do evento:</label>
+      <input type="text" class="form-control" [(ngModel)]="valorBuscado" >
+    </div>
+      <select class="form-control" [(ngModel)]="palavraSelect">
+          <option value="-1">Selecione uma Palavra chave para buscar evento</option>
+          <option *ngFor="let item of palavras" value="{{item.id}}">{{item.palavra}}</option>
+      </select>
+      <select class="form-control" [(ngModel)]="situacao">
+          <option value="-1">Selecione uma Situação de submissão</option>
+          <option value="0">Aguardando abertura</option>
+          <option value="1">Aberta</option>
+          <option value="2">Fechada</option>
+      </select>
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+  </div>
+  <br/>
+  <div id ="resposta" class="container">
+  	<table class='table table-dark'>
+
+    <thead>
+        <tr>
+        	<th scope='col'>Id</th>
+            <th scope='col'>Nome</th>
+            <th scope='col'>Sigla</th>
+            <th scope='col'>Periodo do evento</th>
+            <th scope='col'>Periodo do submição</th>
+            <th scope='col'>Àrea de concentração</th>
+        </tr>
+    </thead>
+    	<tbody>
+	        <tr *ngFor="let item of eventos" id="evento-{{item.id}}">
+	          <th scope='row'>{{item.id}}</th>
+	          <td>{{item.nome}}</td>
+	          <td>{{item.sigla}}</td>
+	          <td>{{item.inicio_evento}} ate {{item.fim_evento}} </td>
+	          <td>{{item.inicio_submicao}} ate {{item.fim_submissao}}</td>
+	          <td>{{item.area_de_pesquisa}}</td>
+            <td><button type="button" *ngIf="item.situ" class="btn btn-success" routerLink="/submicaoAtigo/{{item.id}}">Submeter um artigo
+            </button></td>
+	    </tbody>
+	</table>
+
+
+
+  </div>
