@@ -91,6 +91,18 @@ server.get('/palava-get-nome/:busca', (req, res, next) => {
 
 });
 
+server.get('/palavaid-event-get/:busca', (req, res, next) => {
+  const {busca} = req.params;  
+
+
+  knex('evento_has_palavra_chave')
+  .where('palavra_chave_id',busca)
+  .then((dados)=>{    
+    res.send(dados);
+  },next )
+
+});
+
 server.put('/palava-update/:id', (req, res, next) => {
   const {id} = req.params;  
 

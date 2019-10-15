@@ -28,4 +28,21 @@ export class BuscarPalavraComponent implements OnInit {
   	this.listeP(this.valorBuscado);
   }
 
+  delete(item){
+    console.log(item);
+    this.palavraServe.getEventoBypalavarId(item.id).subscribe( dados=>{
+      console.log(dados);
+      if(dados.length==0){
+        this.palavraServe.deleta(item.id)
+        .subscribe(
+          success => {
+            alert('O Palavra Excluida');
+            document.getElementById('pala-'+item.id).remove();
+          },
+            error=> alert('O Palavra Não pode ser excluirdo Excluida')
+          );
+      }else alert('O Palavra Não pode ser excluirdo Excluida há eventos com essa área');
+    });
+    
+  }
 }

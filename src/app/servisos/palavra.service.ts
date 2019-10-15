@@ -27,6 +27,15 @@ export class PalavraService {
 	getPalavraByEvento(id){
 		var CpalavraUrl = this.buscaUrl+ "evento-palavra-get/"+id;
 		return this.http.get<any[]>(CpalavraUrl);
-
 	}
+	getEventoBypalavarId(id){
+		var CpalavraUrl = this.buscaUrl+ "palavaid-event-get/"+id;
+		return this.http.get<any[]>(CpalavraUrl);
+	}
+
+	deleta( id ) {
+		var CpalavraUrl = this.buscaUrl+ "palava-delete/"+id;
+		return this.http.delete(CpalavraUrl);
+	}
+	
 }
