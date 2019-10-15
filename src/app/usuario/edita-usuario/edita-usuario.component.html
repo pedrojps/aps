@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+<div class= ' center-block col-12'>
+	<h3>Editar cadastro</h3>
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" [(ngModel)]="novo.nome" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Nome">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="novo.email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="senha">Senha</label>
+    <input type="password" [(ngModel)]="novo.senha" class="form-control" id="senha" placeholder="Senha">
+  </div>
+  <label >Você e :</label>
+	<select class="form-control" id="area" [(ngModel)]="novo.tipo">
+	   	<option value="-1">Selecione uma Tipo de usuario</option>
+	  	<option value="0">Aluno</option>
+	  	<option  value="1">Professor</option>
+	</select>
+	<label >Se Você e Aluno:</label>
+	<div class="form-group">
+	    <label for="matricula">Matricula</label>
+	    <input type="text" [(ngModel)]="novo.matricula" class="form-control" id="matricula" placeholder="Matricula">
+	</div>
+    <label>Se Você e Professor:</label>
+    <div class="form-group">
+	    <label for="titulacao">Titulação</label>
+	    <input type="text" [(ngModel)]="novo.titulacao" class="form-control" id="titulacao" placeholder="Titulação">
+  	</div>
+  	<select class="form-control" id="area" [(ngModel)]="novo.id_area" >
+	   	<option value="-1">Selecione uma Àrea</option>
+	  	<option *ngFor="let item of areas" value="{{item.id}}">{{item.area_de_pesquisa}}</option>
+	</select>
+  <button type="submit" class="btn btn-primary" (click)="criarUsuario()">Cadastre-se</button>
+</div>
+</div>
+</div>

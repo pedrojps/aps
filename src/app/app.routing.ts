@@ -16,6 +16,7 @@ import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.co
 import { LoginUserComponent } from './usuario/login-user/login-user.component';
 import { HomeComponent } from './usuario/home/home.component';
 import { CadastraUsuarioComponent } from './usuario/cadastra-usuario/cadastra-usuario.component';
+import { EditaUsuarioComponent } from './usuario/edita-usuario/edita-usuario.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -34,6 +35,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'loginadimin' , component : LoginAdiminComponent
 	},{ path : 'login' , component : LoginUserComponent
 	},{ path : 'cadastrausuario' , component : CadastraUsuarioComponent
+	},{ path : 'editausuario' , component : EditaUsuarioComponent ,canActivate:[AuthUsuarioGuard]
 	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
 	}
 

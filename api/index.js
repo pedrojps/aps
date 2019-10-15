@@ -379,3 +379,39 @@ server.post('/altentic-adimin-get', (req, res, next) => {
   },next )
 
 });
+
+server.post('/altentic-usuario-get', (req, res, next) => {
+
+  knex('usuario')
+  .where('senha',req.body.senha).andWhere('email',req.body.nome)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+
+server.post('/user-create', (req, res, next) => {
+  
+
+  knex('usuario')
+    .insert(req.body)
+    .then((dados)=>{
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send(dados);
+  },next )
+
+});
+
+server.put('/user-update/:id', (req, res, next) => {
+  const {id} = req.params;  
+
+  knex('usuario')
+  .where('id',id)
+  .update(req.body)
+  .then((dados)=>{
+    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send('dados atualizados');
+  },next )
+
+});

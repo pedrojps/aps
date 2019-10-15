@@ -69,4 +69,8 @@ export class AuthService {
   usuarioEstaAutenticado(){
   	return this.usuarioAutenticado;
   }
+
+  getUsuario(){
+    return this.usuario;
+  }
 }
