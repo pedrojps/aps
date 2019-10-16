@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.component';
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.component';
+import { SubmeterArtigoComponent } from './submeter-artigo/submeter-artigo.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.compone
   HomeComponent,
   CadastraUsuarioComponent,
   EditaUsuarioComponent,
-  BuscarUserEventoComponent],
+  BuscarUserEventoComponent,
+  SubmeterArtigoComponent],
   imports: [
     CommonModule,
     FormsModule,
