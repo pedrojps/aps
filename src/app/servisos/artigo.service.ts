@@ -20,6 +20,11 @@ export class ArtigoService {
 		var BucarUrl = this.Url+ "artigo-user-get/"+id;
 		return this.http.get<any[]>(`${BucarUrl}`);
 	}
+
+	listarByRevisor( id ) {
+		var BucarUrl = this.Url+ "artigo-all-get-revisor/"+id;
+		return this.http.get<any[]>(`${BucarUrl}`);
+	}
 	buscar( busca ) {
 		var BucarUrl = this.Url+ "artigo-busca/"+busca;
 		return this.http.get<any[]>(`${BucarUrl}`);

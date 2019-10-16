@@ -10,6 +10,7 @@ import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.component';
 import { SubmeterArtigoComponent } from './submeter-artigo/submeter-artigo.component';
 import { VisualizarArtigosComponent } from './visualizar-artigos/visualizar-artigos.component';
+import { RevisarArtigoComponent } from './revisar-artigo/revisar-artigo.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VisualizarArtigosComponent } from './visualizar-artigos/visualizar-arti
   EditaUsuarioComponent,
   BuscarUserEventoComponent,
   SubmeterArtigoComponent,
-  VisualizarArtigosComponent],
+  VisualizarArtigosComponent,
+  RevisarArtigoComponent],
   imports: [
     CommonModule,
     FormsModule,

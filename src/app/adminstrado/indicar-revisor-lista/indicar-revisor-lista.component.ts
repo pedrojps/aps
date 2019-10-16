@@ -71,6 +71,9 @@ export class IndicarRevisorListaComponent implements OnInit {
   		alert("indicado com sucesso");
   		this.location.back();
   	},error=>alert("não foi possivel indicar"));
+  	
+  		alert("indicado com sucesso");
+  		this.location.back();
   }
 
 }
