@@ -20,7 +20,7 @@ export class RevisarArtigoComponent implements OnInit {
 
   ngOnInit() {
   	this.user = this.authserve.getUsuario();
-  	this.getArtigos(4/*this.user.id*/);
+  	this.getArtigos(this.user.id);
   }
 
 

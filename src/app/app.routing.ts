@@ -48,7 +48,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'userbuscar' , component : BuscarUserEventoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'visualizaartigo' , component : VisualizarArtigosComponent , canActivate:[AuthUsuarioGuard]
-	},{ path : 'artigosindicados' , component : RevisarArtigoComponent 
+	},{ path : 'artigosindicados' , component : RevisarArtigoComponent ,canActivate:[AuthUsuarioGuard]
 	}
 
 ];
