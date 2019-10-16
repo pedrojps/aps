@@ -20,8 +20,11 @@ export class AuthService {
 
 	private usuarioAutenticado: boolean = false;
 
+  private professorAutenticado: boolean = false;
+
 	mostaMenuAdiminEmitter= new EventEmitter<boolean>();
 
+  mostaMenuRevisoEmitter= new EventEmitter<boolean>();
 	mostaMenuUsuarioEmitter= new EventEmitter<boolean>();
 
   constructor(private router: Router,private http: HttpClient) { }
@@ -52,6 +55,7 @@ export class AuthService {
       if(dados.length!=0){
         this.usuario=dados[0];
         this.usuarioAutenticado= true;
+        this.mostaMenuRevisoEmitter.emit(this.usuario.tipo == 1);
         this.mostaMenuUsuarioEmitter.emit(true);
         this.router.navigate(['/']);
         } else {

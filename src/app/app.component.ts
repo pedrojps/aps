@@ -12,6 +12,7 @@ export class AppComponent {
 
   mostraMenuAdimin:boolean=false;
 
+  mostraRevisorUsuario:boolean=false;
   mostraMenuUsuario:boolean=false;
 
   constructor(private authService: AuthService){
@@ -23,6 +24,10 @@ export class AppComponent {
   	);
     this.authService.mostaMenuUsuarioEmitter.subscribe(
       mostra => this.mostraMenuUsuario=mostra
+    );
+    
+    this.authService.mostaMenuRevisoEmitter.subscribe(
+      mostra => this.mostraRevisorUsuario=mostra
     );
   }
 }
