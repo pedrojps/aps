@@ -24,7 +24,7 @@ export class SubmeterArtigoComponent implements OnInit {
 
 	autores : Autore[]=[];
 
-	file: file;
+	file: File;
 	autor: Autore = new Autore();
 	user;
 
