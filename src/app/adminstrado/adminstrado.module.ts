@@ -14,6 +14,8 @@ import { DetalheEventoComponent } from './detalhe-evento/detalhe-evento.componen
 import { routing } from '../app.routing';
 import { EditEventoComponent } from './edit-evento/edit-evento.component';
 import { LoginAdiminComponent } from './login-adimin/login-adimin.component';
+import { IndicarRevisorComponent } from './indicar-revisor/indicar-revisor.component';
+import { IndicarRevisorListaComponent } from './indicar-revisor-lista/indicar-revisor-lista.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { LoginAdiminComponent } from './login-adimin/login-adimin.component';
    BuscarPalavraComponent,
    DetalheEventoComponent,
    EditEventoComponent,
-    LoginAdiminComponent
+    LoginAdiminComponent,
+    IndicarRevisorComponent,
+    IndicarRevisorListaComponent
 
    ],
   exports:[

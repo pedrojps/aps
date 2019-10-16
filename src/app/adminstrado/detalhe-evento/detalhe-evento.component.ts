@@ -20,6 +20,10 @@ export class DetalheEventoComponent implements OnInit {
 	artigos;
 	artigosAprovados;
 	artigosRejeitados;
+
+	numArtAceito= 0;
+	numArtRejeitado = 0;
+	numArtTotal =0;
 	constructor(private eventoServe: EventoService, 
 		private artigoServe : ArtigoService ,
 		private palavraServe: PalavraService,
@@ -53,19 +57,20 @@ export class DetalheEventoComponent implements OnInit {
 
 	getArtigos(id){
 		this.artigoServe.listar(id).subscribe(dados=> {
-				dados.forEach( function (item, indice, array){
-					if(item.status== 0)
-						item.status='Esterando Revisão';
-					else if(item.status== 1)
-						item.status='Em Revição';
-					else if(item.status== 2)
-						item.status='Aceito';
-					else if(item.status== 3)
-						item.status='Rejeitado';
-				});
+			var numAceito= 0;
+			var numRejeitado = 0;
+			var numTotal =0;
+			dados.forEach(function (item, indice, array) {
+				if(item.status == "Aceito"){
+					numAceito++;
+				}else if (item.status == "Rejeitado"){
+					numRejeitado++;
+				}
+				numTotal++;
+				
+			});
 				this.artigos = dados;
-			}
-			);
+			});
 	}
 
 	cancela(){

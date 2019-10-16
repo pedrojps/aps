@@ -12,6 +12,8 @@ import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.compo
 import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
 import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.component';
 import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.component';
+import { IndicarRevisorComponent } from './adminstrado/indicar-revisor/indicar-revisor.component';
+import { IndicarRevisorListaComponent } from './adminstrado/indicar-revisor-lista/indicar-revisor-lista.component';
 
 import { LoginUserComponent } from './usuario/login-user/login-user.component';
 import { HomeComponent } from './usuario/home/home.component';
@@ -19,6 +21,8 @@ import { CadastraUsuarioComponent } from './usuario/cadastra-usuario/cadastra-us
 import { EditaUsuarioComponent } from './usuario/edita-usuario/edita-usuario.component';
 import { BuscarUserEventoComponent } from './usuario/buscar-evento/buscar-evento.component';
 import { SubmeterArtigoComponent } from './usuario/submeter-artigo/submeter-artigo.component';
+import { VisualizarArtigosComponent } from './usuario/visualizar-artigos/visualizar-artigos.component';
+import { RevisarArtigoComponent } from './usuario/revisar-artigo/revisar-artigo.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -33,6 +37,8 @@ const APP_ROUTES: Routes = [
 	},{ path : 'eventobusca' , component : BuscarEventoComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'areabusca' , component : BuscarAreaComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'indicarrevisor' , component : IndicarRevisorComponent , canActivate: [AuthAdiminGuard]
+	},{ path : 'indicarR/:id' , component : IndicarRevisorListaComponent , canActivate: [AuthAdiminGuard]
 	},{ path : 'editaevento/:id' , component : EditEventoComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'loginadimin' , component : LoginAdiminComponent
 	},{ path : 'login' , component : LoginUserComponent
@@ -41,6 +47,8 @@ const APP_ROUTES: Routes = [
 	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'userbuscar' , component : BuscarUserEventoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
+	},{ path : 'visualizaartigo' , component : VisualizarArtigosComponent , canActivate:[AuthUsuarioGuard]
+	},{ path : 'artigosindicados' , component : RevisarArtigoComponent ,canActivate:[AuthUsuarioGuard]
 	}
 
 ];

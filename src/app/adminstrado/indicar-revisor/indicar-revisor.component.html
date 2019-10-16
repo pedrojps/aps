@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+<div class= ' center-block col-12'>
+	<h3>Artigos submetidos:</h3>
+	<div class="campo form-group">
+      <label >Filtre pelo nome do evento:</label>
+      <input type="text" class="form-control" [(ngModel)]="valorBuscado" >
+    </div>
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+    <table class='table table-dark'>
+    <thead>
+        <tr>
+        	<th scope='col'>Id</th>
+            <th scope='col'>Titulo</th>
+            <th scope='col'>Evento</th>
+            <th scope='col'>Situação</th>
+            <th scope='col'>Revisor atual</th>
+        </tr>
+    </thead>
+    	<tbody>
+		        <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
+		          <th scope='row'>{{item.id}}</th>
+		          <td>{{item.titulo}}</td>
+		          <td>{{item.evento_nome}} ,{{item.evento_sigla}}</td>
+		          <td>{{item.status}}</td>
+		          <td>{{item.revisor_nome}}</td>
+		          <td *ngIf="item.status == 'aguardando'">	<button type="button" class="btn btn-success" routerLink="/indicarR/{{item.id}}">Indicar Revisor
+            </button>
+				  </td>
+		        </tr>
+	    </tbody>
+	</table>
+</div>
+</div>
+</div>

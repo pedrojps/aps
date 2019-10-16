@@ -15,8 +15,25 @@ export class ArtigoService {
 	listar( id ) {
 		var BucarUrl = this.Url+ "artigo-liste-by-evento/"+id;
 		return this.http.get<any[]>(`${BucarUrl}`);
+	}	
+	listarByUser( id ) {
+		var BucarUrl = this.Url+ "artigo-user-get/"+id;
+		return this.http.get<any[]>(`${BucarUrl}`);
 	}
 
+	listarByRevisor( id ) {
+		var BucarUrl = this.Url+ "artigo-all-get-revisor/"+id;
+		return this.http.get<any[]>(`${BucarUrl}`);
+	}
+	buscar( busca ) {
+		var BucarUrl = this.Url+ "artigo-busca/"+busca;
+		return this.http.get<any[]>(`${BucarUrl}`);
+	}
+
+	getArtigo( id ) {
+		var BucarUrl = this.Url+ "artigo-get/"+id;
+		return this.http.get<any>(`${BucarUrl}`);
+	}
 	upload(file:File,artigo:ArtigoSub){
 
 		const formData = new FormData();
@@ -39,5 +56,15 @@ export class ArtigoService {
 		var BucarUrl = this.Url+ "autores-create";
 		return this.http.post(`${BucarUrl}`,autores);
 
+	}
+
+	updateRevisor(up){
+		var BucarUrl = this.Url+ "set-revisor/";
+		return this.http.put(`${BucarUrl}`,up);
+	}
+
+	update(up){
+		var BucarUrl = this.Url+ "update-artigo/"+up.id;
+		return this.http.put(`${BucarUrl}`,up);
 	}
 }

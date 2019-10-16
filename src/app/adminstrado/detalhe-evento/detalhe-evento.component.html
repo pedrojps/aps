@@ -6,8 +6,8 @@
       <h4>Palavras-chave: {{palavras}}</h4>
       <h4>Área de Concentração: {{evento.area_de_pesquisa}}</h4>
       <h4>Artigos submetidos:</h4>
-      <h4>Artigos aceitos:</h4>
-      <h4>Artigos rejeitados:</h4>
+      <h4>Artigos aceitos: {{numArtAceito}}</h4>
+      <h4>Artigos rejeitados: {{numArtRejeitado}}</h4>
     </div>
     <div class="col"><button type="button" class="btn btn-success" routerLink="/editaevento/{{evento.id}}">Editar</button>
       <button type="button" class="btn btn-outline-secondary" (click)="cancela()">Cancela</button></div>

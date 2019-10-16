@@ -19,4 +19,10 @@ export class UsuarioService {
 		var CpalavraUrl = this.Url+ "user-update/"+id;
 		return this.http.put(CpalavraUrl,user);
 	}
+
+	getProfessores(id){
+		var CpalavraUrl = this.Url+ "get-professores/"+id;
+		return this.http.get<any[]>(CpalavraUrl);
+	}
+
 }

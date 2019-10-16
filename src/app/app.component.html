@@ -7,7 +7,7 @@
   <div  *ngIf="mostraMenuAdimin">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/indicarrevisor">Indicar Revisor<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,8 +41,8 @@
           Edita cadastro
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item active">
+        <a class="nav-link dropdown-toggle" routerLink="/visualizaartigo">
           Visualizar artigos enviados
         </a>
       </li>
@@ -51,7 +51,7 @@
           Buscar evento
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item active" *ngIf="mostraRevisorUsuario">
         <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Revisar artigo
         </a>
