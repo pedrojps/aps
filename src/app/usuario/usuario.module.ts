@@ -11,6 +11,7 @@ import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.compone
 import { SubmeterArtigoComponent } from './submeter-artigo/submeter-artigo.component';
 import { VisualizarArtigosComponent } from './visualizar-artigos/visualizar-artigos.component';
 import { RevisarArtigoComponent } from './revisar-artigo/revisar-artigo.component';
+import { DetalhesArtigoComponent } from './detalhes-artigo/detalhes-artigo.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RevisarArtigoComponent } from './revisar-artigo/revisar-artigo.componen
   BuscarUserEventoComponent,
   SubmeterArtigoComponent,
   VisualizarArtigosComponent,
-  RevisarArtigoComponent],
+  RevisarArtigoComponent,
+  DetalhesArtigoComponent],
   imports: [
     CommonModule,
     FormsModule,
