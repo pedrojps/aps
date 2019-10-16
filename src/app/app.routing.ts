@@ -12,6 +12,8 @@ import { BuscarAreaComponent } from './adminstrado/buscar-area/buscar-area.compo
 import { DetalheEventoComponent } from './adminstrado/detalhe-evento/detalhe-evento.component';
 import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.component';
 import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.component';
+import { IndicarRevisorComponent } from './adminstrado/indicar-revisor/indicar-revisor.component';
+import { IndicarRevisorListaComponent } from './adminstrado/indicar-revisor-lista/indicar-revisor-lista.component';
 
 import { LoginUserComponent } from './usuario/login-user/login-user.component';
 import { HomeComponent } from './usuario/home/home.component';
@@ -34,6 +36,8 @@ const APP_ROUTES: Routes = [
 	},{ path : 'eventobusca' , component : BuscarEventoComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'areabusca' , component : BuscarAreaComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'detalhesbusca/:id' , component : DetalheEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'indicarrevisor' , component : IndicarRevisorComponent , canActivate: [AuthAdiminGuard]
+	},{ path : 'indicarR/:id' , component : IndicarRevisorListaComponent , canActivate: [AuthAdiminGuard]
 	},{ path : 'editaevento/:id' , component : EditEventoComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'loginadimin' , component : LoginAdiminComponent
 	},{ path : 'login' , component : LoginUserComponent

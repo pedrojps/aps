@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ArtigoService } from '../../servisos/artigo.service';
+
 @Component({
   selector: 'app-indicar-revisor',
   templateUrl: './indicar-revisor.component.html',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndicarRevisorComponent implements OnInit {
 
-  constructor() { }
+	artigos;
+	valorBuscado;
+  constructor(
+	private artigoServe : ArtigoService ) { }
 
   ngOnInit() {
+  this.getArtigos('');
   }
+
+  buscar(){
+  	this.getArtigos(this.valorBuscado);
+  }
+  getArtigos(busca){
+		this.artigoServe.buscar(busca).subscribe(dados=> {
+			this.artigos = dados;
+			this.artigos.forEach(function (item, indice, array) {
+                if(item.revisor_nome==null)
+                	item.revisor_nome = " ";
+              });
+		});
+	}
 
 }

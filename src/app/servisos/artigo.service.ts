@@ -20,6 +20,15 @@ export class ArtigoService {
 		var BucarUrl = this.Url+ "artigo-user-get/"+id;
 		return this.http.get<any[]>(`${BucarUrl}`);
 	}
+	buscar( busca ) {
+		var BucarUrl = this.Url+ "artigo-busca/"+busca;
+		return this.http.get<any[]>(`${BucarUrl}`);
+	}
+
+	getArtigo( id ) {
+		var BucarUrl = this.Url+ "artigo-get/"+id;
+		return this.http.get<any>(`${BucarUrl}`);
+	}
 	upload(file:File,artigo:ArtigoSub){
 
 		const formData = new FormData();
@@ -42,5 +51,10 @@ export class ArtigoService {
 		var BucarUrl = this.Url+ "autores-create";
 		return this.http.post(`${BucarUrl}`,autores);
 
+	}
+
+	updateRevisor(up){
+		var BucarUrl = this.Url+ "set-revisor";
+		return this.http.put(`${BucarUrl}`,up);
 	}
 }

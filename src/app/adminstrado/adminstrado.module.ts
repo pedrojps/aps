@@ -15,6 +15,7 @@ import { routing } from '../app.routing';
 import { EditEventoComponent } from './edit-evento/edit-evento.component';
 import { LoginAdiminComponent } from './login-adimin/login-adimin.component';
 import { IndicarRevisorComponent } from './indicar-revisor/indicar-revisor.component';
+import { IndicarRevisorListaComponent } from './indicar-revisor-lista/indicar-revisor-lista.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { IndicarRevisorComponent } from './indicar-revisor/indicar-revisor.compo
    DetalheEventoComponent,
    EditEventoComponent,
     LoginAdiminComponent,
-    IndicarRevisorComponent
+    IndicarRevisorComponent,
+    IndicarRevisorListaComponent
 
    ],
   exports:[
