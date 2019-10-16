@@ -22,6 +22,7 @@ export class SubmeterArtigoComponent implements OnInit {
 
 	autores : Autore[]=[];
 
+	file: file;
 	autor: Autore = new Autore();
 
   	constructor(
@@ -55,5 +56,16 @@ export class SubmeterArtigoComponent implements OnInit {
 		if (index !== -1) this.autores.splice(index, 1);
 
 		console.log(this.autores);
+	}
+
+	onChange(evento){
+
+		console.log(evento);
+		const selectFile = <FileList>evento.srcElement.files;
+
+		document.getElementById("arquivo").innerHTML = selectFile[0].name;
+
+		this.file = selectFile[0];
+		console.log(this.file);
 	}
 }
