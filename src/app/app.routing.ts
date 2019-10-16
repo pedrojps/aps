@@ -40,7 +40,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'editausuario' , component : EditaUsuarioComponent ,canActivate:[AuthUsuarioGuard]
 	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'userbuscar' , component : BuscarUserEventoComponent , canActivate:[AuthUsuarioGuard]
-	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent 
+	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
 	}
 
 ];

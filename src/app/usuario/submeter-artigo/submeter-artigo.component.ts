@@ -3,6 +3,8 @@ import { ActivatedRoute } 	 from '@angular/router';
 import { Location } 	 from '@angular/common';
 
 import { EventoService } from '../../servisos/evento.service';
+import { ArtigoService } from '../../servisos/artigo.service';
+import { AuthService } from '../../servisos/auth.service';
 import { ArtigoSub } from '../../artigo-submit';
 import { Evento } from '../../evento';
 import { Autore } from '../../autores';
@@ -24,15 +26,18 @@ export class SubmeterArtigoComponent implements OnInit {
 
 	file: file;
 	autor: Autore = new Autore();
+	user;
 
   	constructor(
   	private eventoServe: EventoService,
-  	private route:ActivatedRoute) { 
+	private artigoServe : ArtigoService ,
+  	private route:ActivatedRoute,private authserve:AuthService) { 
   		this.id = this.route.snapshot.params['id'];
 
 	}
 
 	ngOnInit() {
+		this.user = this.authserve.getUsuario();
 		this.id = this.route.snapshot.params['id'];
 		this.getEvento(this.id);
 	}
@@ -68,4 +73,39 @@ export class SubmeterArtigoComponent implements OnInit {
 		this.file = selectFile[0];
 		console.log(this.file);
 	}
+
+	vealide(){
+  		if(this.artigo.titulo.length<3){
+  			alert('Titulo tem que ter pelo menos 3 digitos')
+  			return false;
+  		}
+  		if(this.artigo.resumo.length<3){
+  			alert('Resumo tem que ter pelo menos 3 digitos')
+  			return false;
+  		}
+  		if(!(this.file) || this.file.size==0){
+  			alert('Selecione um arquivo')
+  			return false;
+  		}
+  		this.artigo.status= "0";
+  		this.autor=this.user.id;
+  		return true;
+	}
+
+	criarUsuario(){
+		if(this.vealide()){
+			this.artigoServe.upload(this.file,this.artigo)
+			.subscribe(dados=>{
+				if(dados.length!=0){
+					this.autores.forEach(function (item, indice, array){
+						item.artigo_id=dados[0];
+					})
+					this.artigoServe.uploadAutores(this.autores).subscribe();
+					alert("Artigo submetido com sucesso")
+				}
+			});
+		}
+
+	}
+
 }

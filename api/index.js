@@ -415,3 +415,32 @@ server.put('/user-update/:id', (req, res, next) => {
   },next )
 
 });
+////////////////////////////artigo/////////////////////
+server.post('/artigo-create', (req, res, next) => {
+  
+
+  knex('artigo')
+    .insert(req.body)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+server.get('/artigo-get-all', (req, res, next) => {
+  
+
+  knex('artigo')
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
+server.post('/autores-create', (req, res, next) => {
+  
+  knex('autores')
+    .insert(req.body)
+    .then((dados)=>{
+    res.send(dados);
+  },next )
+
+});
