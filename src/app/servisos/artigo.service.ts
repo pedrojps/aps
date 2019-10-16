@@ -59,7 +59,12 @@ export class ArtigoService {
 	}
 
 	updateRevisor(up){
-		var BucarUrl = this.Url+ "set-revisor";
+		var BucarUrl = this.Url+ "set-revisor/";
+		return this.http.put(`${BucarUrl}`,up);
+	}
+
+	update(up){
+		var BucarUrl = this.Url+ "update-artigo/"+up.id;
 		return this.http.put(`${BucarUrl}`,up);
 	}
 }

@@ -500,13 +500,40 @@ server.get('/artigo-get/:id', (req, res, next) => {
 
 });
 
-server.put('/set-revisor', (req, res, next) => {
-  
+server.get('/artigo-all-get-revisor/:id', (req, res, next) => {
+  const {id} = req.params; 
+
+  knex.select('artigo.*','evento.nome').from('artigo')
+    .innerJoin('evento','evento.id','artigo.evento_id')
+  .where('artigo.revisor',id)
+  .then((dados)=>{
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send(dados);
+  },next )
+
+});
+
+server.put('/set-revisor/', (req, res, next) => {
+ 
 
   knex('artigo').where('id',req.body.artigo_id)
     .update("revisor", req.body.revisor_id)
     .then((dados)=>{
-    res.send(dados);
+    if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send('dados atualizados');
+  },next )
+
+});
+
+server.put('/update-artigo/:id', (req, res, next) => {
+    const {id} = req.params;
+
+  knex('artigo').where('id',id)
+    .update("status", req.body.status)
+    .then((dados)=>{
+      if (!dados) {return res.send(new errs.BadRequestError('nada foi encontrado'))}
+    res.send('dados atualizados');
   },next )
 
 });

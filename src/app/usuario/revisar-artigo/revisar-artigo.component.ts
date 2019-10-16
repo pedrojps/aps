@@ -10,9 +10,9 @@ import { AuthService } from '../../servisos/auth.service';
 })
 export class RevisarArtigoComponent implements OnInit {
 
-	artigosEmRevisao;
-	artigosIndicados;
-	artigosRevisados;
+	artigosEmRevisao=[];
+	artigosIndicados=[];
+	artigosRevisados=[];
 	user;
   constructor(
   	private authserve:AuthService,
@@ -45,5 +45,15 @@ export class RevisarArtigoComponent implements OnInit {
 		this.artigosEmRevisao = em;
 		this.artigosIndicados = ind;
 		this.artigosRevisados = revi;
+	}
+
+	aceita(item){
+		item.status = "Em Revisão";
+		this.artigoServe.update(item).subscribe(
+			success => {
+            alert('Você aceito revisar uma artigo novo');
+            this.artigosIndicados.splice(this.artigosIndicados.indexOf(item));
+			this.artigosEmRevisao.push(item);
+          	},error=> alert('Não e possivel aceita artigo novo para revisar'));
 	}
 }

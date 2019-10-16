@@ -38,6 +38,7 @@
 		          <td>{{item.titulo}}</td>
 		          <td>{{item.nome}} ,{{item.sigla}}</td>
 		          <td>{{item.status}}</td>
+		          <td><button type="submit" *ngIf="artigosEmRevisao.length < 2" class="btn btn-primary" (click)="aceita(item)">Aceitar Revisar</button></td>
 		        </tr>
 	    </tbody>
 	</table>
