@@ -9,6 +9,7 @@ import { CadastraUsuarioComponent } from './cadastra-usuario/cadastra-usuario.co
 import { EditaUsuarioComponent } from './edita-usuario/edita-usuario.component';
 import { BuscarUserEventoComponent } from './buscar-evento/buscar-evento.component';
 import { SubmeterArtigoComponent } from './submeter-artigo/submeter-artigo.component';
+import { VisualizarArtigosComponent } from './visualizar-artigos/visualizar-artigos.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SubmeterArtigoComponent } from './submeter-artigo/submeter-artigo.compo
   CadastraUsuarioComponent,
   EditaUsuarioComponent,
   BuscarUserEventoComponent,
-  SubmeterArtigoComponent],
+  SubmeterArtigoComponent,
+  VisualizarArtigosComponent],
   imports: [
     CommonModule,
     FormsModule,

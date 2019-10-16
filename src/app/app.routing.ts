@@ -19,6 +19,7 @@ import { CadastraUsuarioComponent } from './usuario/cadastra-usuario/cadastra-us
 import { EditaUsuarioComponent } from './usuario/edita-usuario/edita-usuario.component';
 import { BuscarUserEventoComponent } from './usuario/buscar-evento/buscar-evento.component';
 import { SubmeterArtigoComponent } from './usuario/submeter-artigo/submeter-artigo.component';
+import { VisualizarArtigosComponent } from './usuario/visualizar-artigos/visualizar-artigos.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -41,6 +42,7 @@ const APP_ROUTES: Routes = [
 	},{ path : '' , component : HomeComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'userbuscar' , component : BuscarUserEventoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
+	},{ path : 'visualizaartigo' , component : VisualizarArtigosComponent , canActivate:[AuthUsuarioGuard]
 	}
 
 ];

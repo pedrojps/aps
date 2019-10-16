@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+<div class= ' center-block col-12'>
+	<h3>Artigos submetidos:</h3>
+    <table class='table table-dark'>
+    <thead>
+        <tr>
+        	<th scope='col'>Id</th>
+            <th scope='col'>Titulo</th>
+            <th scope='col'>Evento</th>
+            <th scope='col'>Situação</th>
+        </tr>
+    </thead>
+    	<tbody>
+		        <tr *ngFor="let item of artigos" id="evento-{{item.id}}">
+		          <th scope='row'>{{item.id}}</th>
+		          <td>{{item.titulo}}</td>
+		          <td>{{item.nome}} ,{{item.sigla}}</td>
+		          <td>{{item.status}}</td>
+		        </tr>
+	    </tbody>
+	</table>
+</div>
+</div>
+</div>

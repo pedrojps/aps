@@ -24,27 +24,35 @@ export class SubmeterArtigoComponent implements OnInit {
 
 	autores : Autore[]=[];
 
-	file: file;
+	file: File;
 	autor: Autore = new Autore();
 	user;
 
   	constructor(
   	private eventoServe: EventoService,
 	private artigoServe : ArtigoService ,
-  	private route:ActivatedRoute,private authserve:AuthService) { 
+  	private route:ActivatedRoute,
+  	private authserve:AuthService,
+  	private location: Location) { 
   		this.id = this.route.snapshot.params['id'];
 
 	}
 
 	ngOnInit() {
 		this.user = this.authserve.getUsuario();
+		console.log(this.authserve.getUsuario());
 		this.id = this.route.snapshot.params['id'];
+		this.artigo.autor=this.authserve.getUsuario().id;
+		this.artigo.status= "aguardando";
 		this.getEvento(this.id);
 	}
 
   	getEvento(id){
 		this.eventoServe.getEvento(id).subscribe(
-			dados=> this.evento = dados
+			dados=> {
+				this.evento = dados;
+				this.artigo.evento_id=this.evento.id;
+			}
 			);
 	}
 
@@ -87,12 +95,11 @@ export class SubmeterArtigoComponent implements OnInit {
   			alert('Selecione um arquivo')
   			return false;
   		}
-  		this.artigo.status= "0";
-  		this.autor=this.user.id;
   		return true;
 	}
 
 	criarUsuario(){
+		console.log(this.artigo);
 		if(this.vealide()){
 			this.artigoServe.upload(this.file,this.artigo)
 			.subscribe(dados=>{
@@ -102,10 +109,15 @@ export class SubmeterArtigoComponent implements OnInit {
 					})
 					this.artigoServe.uploadAutores(this.autores).subscribe();
 					alert("Artigo submetido com sucesso")
+					this.location.back();
 				}
 			});
 		}
 
 	}
+
+	cancela(){
+  		this.location.back();
+  	}
 
 }

@@ -15,8 +15,11 @@ export class ArtigoService {
 	listar( id ) {
 		var BucarUrl = this.Url+ "artigo-liste-by-evento/"+id;
 		return this.http.get<any[]>(`${BucarUrl}`);
+	}	
+	listarByUser( id ) {
+		var BucarUrl = this.Url+ "artigo-user-get/"+id;
+		return this.http.get<any[]>(`${BucarUrl}`);
 	}
-
 	upload(file:File,artigo:ArtigoSub){
 
 		const formData = new FormData();

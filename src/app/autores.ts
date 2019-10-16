@@ -1,5 +1,5 @@
 export class Autore{
-	artigo_id : int;
+	artigo_id ;
 	nome :string=' ';
 	email : string=' ';
 }
