@@ -50,7 +50,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'visualizaartigo' , component : VisualizarArtigosComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'artigosindicados' , component : RevisarArtigoComponent ,canActivate:[AuthUsuarioGuard]
-	},{ path : 'detalhesartigo/:id' , component : DetalhesArtigoComponent 
+	},{ path : 'detalhesartigo/:id' , component : DetalhesArtigoComponent ,canActivate:[AuthUsuarioGuard]
 	}
 
 ];
