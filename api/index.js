@@ -390,6 +390,19 @@ server.post('/altentic-usuario-get', (req, res, next) => {
 
 });
 
+server.post('/admin-create', (req, res, next) => {
+  
+
+  knex('adiministrador')
+    .insert(req.body)
+    .then((dados)=>{
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send(dados);
+  },next )
+
+});
+
 server.post('/user-create', (req, res, next) => {
   
 
@@ -488,7 +501,7 @@ server.get('/artigo-busca/:busca', (req, res, next) => {
 server.get('/artigo-get/:id', (req, res, next) => {
   const {id} = req.params; 
 
-  knex.select('artigo.*','evento.area_de_pesquisa_id').from('artigo')
+  knex.select('artigo.*','evento.area_de_pesquisa_id','evento.nome as evento_nome','evento.sigla as evento_sigla').from('artigo')
     .innerJoin('evento','evento.id','artigo.evento_id')
   .where('artigo.id',id)
   .first()
