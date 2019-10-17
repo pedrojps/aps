@@ -23,6 +23,7 @@ import { BuscarUserEventoComponent } from './usuario/buscar-evento/buscar-evento
 import { SubmeterArtigoComponent } from './usuario/submeter-artigo/submeter-artigo.component';
 import { VisualizarArtigosComponent } from './usuario/visualizar-artigos/visualizar-artigos.component';
 import { RevisarArtigoComponent } from './usuario/revisar-artigo/revisar-artigo.component';
+import { DetalhesArtigoComponent } from './usuario/detalhes-artigo/detalhes-artigo.component';
 
 
 import { AuthAdiminGuard } from './guards/auth-admin.guard';
@@ -49,6 +50,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'submeterartigo/:id' , component : SubmeterArtigoComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'visualizaartigo' , component : VisualizarArtigosComponent , canActivate:[AuthUsuarioGuard]
 	},{ path : 'artigosindicados' , component : RevisarArtigoComponent ,canActivate:[AuthUsuarioGuard]
+	},{ path : 'detalhesartigo/:id' , component : DetalhesArtigoComponent 
 	}
 
 ];

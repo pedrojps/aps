@@ -103,7 +103,7 @@ export class SubmeterArtigoComponent implements OnInit {
 		if(this.vealide()){
 			this.artigoServe.upload(this.file,this.artigo)
 			.subscribe(dados=>{
-				if(dados.length!=0){
+				if(dados!=null){
 					this.autores.forEach(function (item, indice, array){
 						item.artigo_id=dados[0];
 					})

@@ -52,7 +52,7 @@ export class RevisarArtigoComponent implements OnInit {
 		this.artigoServe.update(item).subscribe(
 			success => {
             alert('Você aceito revisar uma artigo novo');
-            this.artigosIndicados.splice(this.artigosIndicados.indexOf(item));
+            this.artigosIndicados.splice(this.artigosIndicados.indexOf(item),1);
 			this.artigosEmRevisao.push(item);
           	},error=> alert('Não e possivel aceita artigo novo para revisar'));
 	}
