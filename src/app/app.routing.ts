@@ -14,6 +14,7 @@ import { EditEventoComponent } from './adminstrado/edit-evento/edit-evento.compo
 import { LoginAdiminComponent } from './adminstrado/login-adimin/login-adimin.component';
 import { IndicarRevisorComponent } from './adminstrado/indicar-revisor/indicar-revisor.component';
 import { IndicarRevisorListaComponent } from './adminstrado/indicar-revisor-lista/indicar-revisor-lista.component';
+import { CadastraAdiminComponent } from './adminstrado/cadastra-adimin/cadastra-adimin.component';
 
 import { LoginUserComponent } from './usuario/login-user/login-user.component';
 import { HomeComponent } from './usuario/home/home.component';
@@ -41,6 +42,7 @@ const APP_ROUTES: Routes = [
 	},{ path : 'indicarrevisor' , component : IndicarRevisorComponent , canActivate: [AuthAdiminGuard]
 	},{ path : 'indicarR/:id' , component : IndicarRevisorListaComponent , canActivate: [AuthAdiminGuard]
 	},{ path : 'editaevento/:id' , component : EditEventoComponent, canActivate: [AuthAdiminGuard]
+	},{ path : 'novoadimin' , component : CadastraAdiminComponent, canActivate: [AuthAdiminGuard]
 	},{ path : 'loginadimin' , component : LoginAdiminComponent
 	},{ path : 'login' , component : LoginUserComponent
 	},{ path : 'cadastrausuario' , component : CadastraUsuarioComponent

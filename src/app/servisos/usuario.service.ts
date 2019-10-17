@@ -15,6 +15,11 @@ export class UsuarioService {
 		var CpalavraUrl = this.Url+ "user-create";
 		return this.http.post(CpalavraUrl,user);
 	}
+
+	criaAdmin( user ) {
+		var CpalavraUrl = this.Url+ "admin-create";
+		return this.http.post(CpalavraUrl,user);
+	}
 	update(user, id){
 		var CpalavraUrl = this.Url+ "user-update/"+id;
 		return this.http.put(CpalavraUrl,user);
